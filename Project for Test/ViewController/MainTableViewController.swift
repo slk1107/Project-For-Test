@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainTableViewController.swift
 //  Project for Test
 //
 //  Created by Kris on 2020/2/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

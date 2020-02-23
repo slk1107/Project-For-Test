@@ -17,8 +17,6 @@ struct DatalistResponse: Codable {
     var results: [SiteInfo]
 }
 struct SiteInfo: Codable {
-    var info: String?
     var stitle: String
     var file: String
-    var xbody: String
 }

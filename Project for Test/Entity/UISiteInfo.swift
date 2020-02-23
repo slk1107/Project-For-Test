@@ -10,14 +10,17 @@ import Foundation
 struct UISiteInfo {
     var title: String
     var imageURL: URL
-    var description: String
     init(serverInfo: SiteInfo) {
         self.title = serverInfo.stitle
-        self.description = serverInfo.xbody
         let firstFileURL = serverInfo.file
             .components(separatedBy: "http://")
             .compactMap({URL(string: $0)?.toHttps()})
             .first!
         self.imageURL = firstFileURL
+    }
+    
+    init(title: String, imageURL: URL) {
+        self.title = title
+        self.imageURL = imageURL
     }
 }

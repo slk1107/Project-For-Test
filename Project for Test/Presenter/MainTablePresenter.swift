@@ -8,6 +8,14 @@
 
 import Foundation
 
+protocol MainTablePresenterProtocol {
+    var viewController: MainTableViewController! {get set}
+    func viewDidLoad()
+    func numberOfSections() -> Int
+    func numberOfRowsInSection(section: Int) -> Int
+    func willDisplay(index: Int)
+}
+
 class MainTablePresenter {
     var networkInteractor: NetworkInteractor!
     private func fetchData(from index: Int) {

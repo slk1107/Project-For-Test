@@ -26,6 +26,8 @@
 		011514E9240183B000B880E8 /* RealmEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011514E8240183B000B880E8 /* RealmEntities.swift */; };
 		011514EC2401848B00B880E8 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 011514EA2401848200B880E8 /* Realm.framework */; };
 		011514ED2401848B00B880E8 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 011514EA2401848200B880E8 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		015C805824034308000708F5 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015C805724034308000708F5 /* DescriptionTableViewCell.swift */; };
+		015C805A24034321000708F5 /* ImageBackgroundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015C805924034321000708F5 /* ImageBackgroundTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		011514E22401836800B880E8 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		011514E8240183B000B880E8 /* RealmEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmEntities.swift; sourceTree = "<group>"; };
 		011514EA2401848200B880E8 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		015C805724034308000708F5 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		015C805924034321000708F5 /* ImageBackgroundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBackgroundTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,7 @@
 		011514C623FEDCD700B880E8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				015C80562403427A000708F5 /* Cell */,
 				011514C823FEDD0300B880E8 /* InterfaceBuilder */,
 			);
 			path = View;
@@ -218,6 +223,15 @@
 				011514E22401836800B880E8 /* RealmSwift.framework */,
 			);
 			path = 3rdParty;
+			sourceTree = "<group>";
+		};
+		015C80562403427A000708F5 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				015C805724034308000708F5 /* DescriptionTableViewCell.swift */,
+				015C805924034321000708F5 /* ImageBackgroundTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,10 +338,12 @@
 			files = (
 				010686F423FED4B500CB74FD /* MainTableViewController.swift in Sources */,
 				011514D123FEE01B00B880E8 /* MainTablePresenter.swift in Sources */,
+				015C805824034308000708F5 /* DescriptionTableViewCell.swift in Sources */,
 				011514D923FEE45D00B880E8 /* DataBaseInteractor.swift in Sources */,
 				011514CD23FEDF1700B880E8 /* NetworkInteractor.swift in Sources */,
 				010686F023FED4B500CB74FD /* AppDelegate.swift in Sources */,
 				011514E9240183B000B880E8 /* RealmEntities.swift in Sources */,
+				015C805A24034321000708F5 /* ImageBackgroundTableViewCell.swift in Sources */,
 				010686F223FED4B500CB74FD /* SceneDelegate.swift in Sources */,
 				011514CF23FEDF3400B880E8 /* NetworkEntities.swift in Sources */,
 				011514D623FEE0C900B880E8 /* File.swift in Sources */,

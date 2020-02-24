@@ -14,9 +14,18 @@ protocol MainTablePresenterProtocol: class {
     func numberOfSections() -> Int
     func numberOfRowsInSection(section: Int) -> Int
     func willDisplay(index: Int)
+    func cellIdentifier(at index: Int) -> String
 }
 
 extension MainTablePresenter: MainTablePresenterProtocol {
+    func cellIdentifier(at index: Int) -> String {
+        if index % 3 == 0 {
+            return "Description"
+        } else {
+            return "ImageBackground"
+        }
+    }
+    
     func viewDidLoad() {
         
     }

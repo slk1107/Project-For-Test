@@ -43,8 +43,7 @@ extension MainTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Description", for: indexPath)
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "ImageBackground", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: presenter.cellIdentifier(at: indexPath.row), for: indexPath) as! MainTableCell
         return cell
     }
     

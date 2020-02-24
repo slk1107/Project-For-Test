@@ -29,6 +29,7 @@
 		015C805824034308000708F5 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015C805724034308000708F5 /* DescriptionTableViewCell.swift */; };
 		015C805A24034321000708F5 /* ImageBackgroundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015C805924034321000708F5 /* ImageBackgroundTableViewCell.swift */; };
 		015C805D24034451000708F5 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015C805C24034451000708F5 /* MainRouter.swift */; };
+		015C806024034F3A000708F5 /* MainTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015C805F24034F3A000708F5 /* MainTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		015C805724034308000708F5 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		015C805924034321000708F5 /* ImageBackgroundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBackgroundTableViewCell.swift; sourceTree = "<group>"; };
 		015C805C24034451000708F5 /* MainRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		015C805F24034F3A000708F5 /* MainTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 		015C80562403427A000708F5 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				015C805F24034F3A000708F5 /* MainTableCell.swift */,
 				015C805724034308000708F5 /* DescriptionTableViewCell.swift */,
 				015C805924034321000708F5 /* ImageBackgroundTableViewCell.swift */,
 			);
@@ -354,6 +357,7 @@
 				011514CD23FEDF1700B880E8 /* NetworkInteractor.swift in Sources */,
 				010686F023FED4B500CB74FD /* AppDelegate.swift in Sources */,
 				011514E9240183B000B880E8 /* RealmEntities.swift in Sources */,
+				015C806024034F3A000708F5 /* MainTableCell.swift in Sources */,
 				015C805A24034321000708F5 /* ImageBackgroundTableViewCell.swift in Sources */,
 				015C805D24034451000708F5 /* MainRouter.swift in Sources */,
 				010686F223FED4B500CB74FD /* SceneDelegate.swift in Sources */,

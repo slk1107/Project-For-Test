@@ -8,10 +8,15 @@
 
 import UIKit
 
-class DescriptionTableViewCell: UITableViewCell {
+class DescriptionTableViewCell: UITableViewCell, MainTableCell {
 
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var thumbnailView: UIImageView!
+    var data: UISiteInfo! {
+        didSet {
+            titleLabel.text = data.title
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -26,6 +26,8 @@
 		011514E9240183B000B880E8 /* RealmEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011514E8240183B000B880E8 /* RealmEntities.swift */; };
 		011514EC2401848B00B880E8 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 011514EA2401848200B880E8 /* Realm.framework */; };
 		011514ED2401848B00B880E8 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 011514EA2401848200B880E8 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		014100BF24040D7200C8C420 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 014100BD24040D6200C8C420 /* Kingfisher.framework */; };
+		014100C024040D7300C8C420 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 014100BD24040D6200C8C420 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		015C805824034308000708F5 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015C805724034308000708F5 /* DescriptionTableViewCell.swift */; };
 		015C805A24034321000708F5 /* ImageBackgroundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015C805924034321000708F5 /* ImageBackgroundTableViewCell.swift */; };
 		015C805D24034451000708F5 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015C805C24034451000708F5 /* MainRouter.swift */; };
@@ -50,6 +52,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				011514ED2401848B00B880E8 /* Realm.framework in Embed Frameworks */,
+				014100C024040D7300C8C420 /* Kingfisher.framework in Embed Frameworks */,
 				011514E52401837800B880E8 /* RealmSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -79,6 +82,7 @@
 		011514E22401836800B880E8 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		011514E8240183B000B880E8 /* RealmEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmEntities.swift; sourceTree = "<group>"; };
 		011514EA2401848200B880E8 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		014100BD24040D6200C8C420 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = "<group>"; };
 		015C805724034308000708F5 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		015C805924034321000708F5 /* ImageBackgroundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBackgroundTableViewCell.swift; sourceTree = "<group>"; };
 		015C805C24034451000708F5 /* MainRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
@@ -91,6 +95,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				011514EC2401848B00B880E8 /* Realm.framework in Frameworks */,
+				014100BF24040D7200C8C420 /* Kingfisher.framework in Frameworks */,
 				011514E42401837800B880E8 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,6 +229,7 @@
 		011514E12401835400B880E8 /* 3rdParty */ = {
 			isa = PBXGroup;
 			children = (
+				014100BD24040D6200C8C420 /* Kingfisher.framework */,
 				011514EA2401848200B880E8 /* Realm.framework */,
 				011514E22401836800B880E8 /* RealmSwift.framework */,
 			);
@@ -532,6 +538,8 @@
 					"$(PROJECT_DIR)/Project\\ for\\ Test/3rdParty",
 					"$(PROJECT_DIR)/Project\\ for\\ Test/3rdParty",
 					"$(PROJECT_DIR)/Project\\ for\\ Test/3rdParty",
+					"$(PROJECT_DIR)/Project\\ for\\ Test/3rdParty",
+					"$(PROJECT_DIR)/Project\\ for\\ Test/3rdParty",
 				);
 				INFOPLIST_FILE = "Project for Test/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -555,6 +563,8 @@
 				DEVELOPMENT_TEAM = 2Z23YJK7V9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/Project\\ for\\ Test/3rdParty",
+					"$(PROJECT_DIR)/Project\\ for\\ Test/3rdParty",
 					"$(PROJECT_DIR)/Project\\ for\\ Test/3rdParty",
 					"$(PROJECT_DIR)/Project\\ for\\ Test/3rdParty",
 					"$(PROJECT_DIR)/Project\\ for\\ Test/3rdParty",

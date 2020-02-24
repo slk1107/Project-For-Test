@@ -9,6 +9,7 @@
 import Foundation
 
 protocol MainTablePresenterProtocol: class {
+    var siteList: [UISiteInfo] {get set}
     var viewController: MainTableViewController! {get set}
     func viewDidLoad()
     func numberOfSections() -> Int
@@ -27,7 +28,7 @@ extension MainTablePresenter: MainTablePresenterProtocol {
     }
     
     func viewDidLoad() {
-        
+        fetchData(from: 0)
     }
     
     func numberOfSections() -> Int {
@@ -35,11 +36,14 @@ extension MainTablePresenter: MainTablePresenterProtocol {
     }
     
     func numberOfRowsInSection(section: Int) -> Int {
-        return 0
+        return siteList.count
     }
     
     func willDisplay(index: Int) {
-        
+        let currentItemCount = siteList.count
+        if currentItemCount - index == 3 {
+            fetchData(from: siteList.count)
+        }
     }
     
     
@@ -47,6 +51,7 @@ extension MainTablePresenter: MainTablePresenterProtocol {
 
 class MainTablePresenter {
     weak var viewController: MainTableViewController!
+    var siteList = [UISiteInfo]()
     var networkInteractor: NetworkInteractor!
     private func fetchData(from index: Int) {
         networkInteractor.fetchData(from: index, completion: {
@@ -58,10 +63,13 @@ class MainTablePresenter {
     }
     
     private func handleFetchCallback(response: RootDataResponse?) {
-        guard let results = response?.result.results else {
+        guard let results = response?.result.results, results.count > 0 else {
             return
         }
         let uiInfos = results.map({UISiteInfo(serverInfo: $0)})
+        
+        siteList.append(contentsOf: uiInfos)
+        viewController.reloadTableView()
         saveToCoreData(infos: uiInfos)
     }
     

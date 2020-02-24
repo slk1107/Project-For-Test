@@ -17,7 +17,7 @@ class MainTableViewController: UITableViewController {
     var presenter: MainTablePresenterProtocol!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        presenter.viewDidLoad()
     }
 }
 
@@ -44,6 +44,7 @@ extension MainTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: presenter.cellIdentifier(at: indexPath.row), for: indexPath) as! MainTableCell
+        cell.data = presenter.siteList[indexPath.row]
         return cell
     }
     

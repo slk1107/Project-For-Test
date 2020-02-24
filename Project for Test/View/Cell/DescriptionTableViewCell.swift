@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Kingfisher
 class DescriptionTableViewCell: UITableViewCell, MainTableCell {
 
     @IBOutlet var titleLabel: UILabel!
@@ -15,6 +15,7 @@ class DescriptionTableViewCell: UITableViewCell, MainTableCell {
     var data: UISiteInfo! {
         didSet {
             titleLabel.text = data.title
+            thumbnailView.kf.setImage(with: data.imageURL)
         }
     }
     override func awakeFromNib() {

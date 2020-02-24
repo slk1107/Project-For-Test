@@ -20,6 +20,7 @@ class DescriptionTableViewCell: UITableViewCell, MainTableCell {
     }
     override func awakeFromNib() {
         super.awakeFromNib()
+        thumbnailView.kf.indicatorType = .activity
         // Initialization code
     }
 

@@ -28,7 +28,12 @@ extension MainTablePresenter: MainTablePresenterProtocol {
     }
     
     func viewDidLoad() {
-        fetchData(from: 0)
+        fetchFromDB() { [weak self] uiResults in
+            guard let self = self else {return}
+            self.siteList.append(contentsOf: uiResults)
+            self.viewController.reloadTableView()
+            self.fetchFromServer(from: self.siteList.count)
+        }
     }
     
     func numberOfSections() -> Int {
@@ -42,7 +47,7 @@ extension MainTablePresenter: MainTablePresenterProtocol {
     func willDisplay(index: Int) {
         let currentItemCount = siteList.count
         if currentItemCount - index == 3 {
-            fetchData(from: siteList.count)
+            fetchFromServer(from: siteList.count)
         }
     }
     
@@ -53,16 +58,26 @@ class MainTablePresenter {
     weak var viewController: MainTableViewController!
     var siteList = [UISiteInfo]()
     var networkInteractor: NetworkInteractor!
-    private func fetchData(from index: Int) {
+    var databaseInteractor: DataBaseInteractor!
+    
+    private func fetchFromDB(completeHandler: @escaping ([UISiteInfo]) -> Void) {
+        databaseInteractor.fetch() {
+            realmSiteInfos in
+            let uiInfos = realmSiteInfos.map {UISiteInfo(dbInfo: $0)}
+            completeHandler(uiInfos)
+        }
+    }
+    
+    private func fetchFromServer(from index: Int) {
         networkInteractor.fetchData(from: index, completion: {
             [weak self] response in
-                self?.handleFetchCallback(response: response)
+                self?.handleServerFetchCallback(response: response)
             }, error: { [weak self] error in
                 self?.handleFetchFailed(error: error)
         })
     }
     
-    private func handleFetchCallback(response: RootDataResponse?) {
+    private func handleServerFetchCallback(response: RootDataResponse?) {
         guard let results = response?.result.results, results.count > 0 else {
             return
         }
@@ -74,7 +89,7 @@ class MainTablePresenter {
     }
     
     private func saveToCoreData(infos: [UISiteInfo]) {
-        
+        databaseInteractor.save(siteInfos: infos)
     }
     
     private func handleFetchFailed(error: Error) {

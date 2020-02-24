@@ -16,6 +16,7 @@ class MainRouter {
         let presenter = MainTablePresenter()
         presenter.viewController = mainTableViewController
         presenter.networkInteractor = NetworkInteractor()
+        presenter.databaseInteractor = DataBaseInteractor()
         mainTableViewController.presenter = presenter
         
         return rootVC

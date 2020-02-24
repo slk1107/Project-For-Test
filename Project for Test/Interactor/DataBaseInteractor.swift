@@ -14,12 +14,15 @@ class DataBaseInteractor: NSObject{
     static let shared = DataBaseInteractor()
     let queue = DispatchQueue(label: "fetch CoreSiteInfo", qos: .background)
     
-    func fetch(completeHandler: @escaping ([RealmSiteInfo]?) -> Void) {
+    func fetch(completeHandler: @escaping ([RealmSiteInfo]) -> Void) {
         queue.async {
             do {
                 let realm = try Realm()
-                let siteInfos = realm.objects(RealmSiteInfo.self).sorted(by: {$0.title < $1.title})
-                completeHandler(siteInfos)
+                var results = [RealmSiteInfo]()
+                for realmInfo in realm.objects(RealmSiteInfo.self).enumerated() {
+                    results.append(realmInfo.element)
+                }
+                completeHandler(results)
             } catch let error {
                 print(error.localizedDescription)
             }
@@ -27,15 +30,17 @@ class DataBaseInteractor: NSObject{
     }
     
     
-    func save(siteInfo: UISiteInfo) {
+    func save(siteInfos: [UISiteInfo]) {
         guard let realm = try? Realm() else {
             return
         }
         try? realm.write {
-            let realmSite = RealmSiteInfo()
-            realmSite.title = siteInfo.title
-            realmSite.imageURL = siteInfo.imageURL.absoluteString
-            realm.add(realmSite)
+            for siteInfo in siteInfos {
+                let realmSite = RealmSiteInfo()
+                realmSite.title = siteInfo.title
+                realmSite.imageURL = siteInfo.imageURL.absoluteString
+                realm.add(realmSite)
+            }
         }
     }
 }

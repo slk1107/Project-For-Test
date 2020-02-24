@@ -19,6 +19,11 @@ struct UISiteInfo {
         self.imageURL = firstFileURL
     }
     
+    init(dbInfo: RealmSiteInfo) {
+        self.title = dbInfo.title
+        self.imageURL = URL(string: dbInfo.imageURL)!
+    }
+    
     init(title: String, imageURL: URL) {
         self.title = title
         self.imageURL = imageURL

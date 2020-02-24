@@ -9,7 +9,7 @@
 import UIKit
 class MainRouter {
     static func buildMainPage() -> UIViewController {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "FirstPage", bundle: nil)
         let rootVC = storyboard.instantiateInitialViewController() as! UINavigationController
         let mainTableViewController = rootVC.viewControllers[0] as! MainTableViewController
 

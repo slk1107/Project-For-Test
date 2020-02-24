@@ -12,12 +12,6 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    static var shared: AppDelegate {
-        get {
-            return (UIApplication.shared.delegate) as! AppDelegate
-        }
-    }
-
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

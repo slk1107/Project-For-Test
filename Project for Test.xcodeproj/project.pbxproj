@@ -28,6 +28,7 @@
 		011514ED2401848B00B880E8 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 011514EA2401848200B880E8 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		015C805824034308000708F5 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015C805724034308000708F5 /* DescriptionTableViewCell.swift */; };
 		015C805A24034321000708F5 /* ImageBackgroundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015C805924034321000708F5 /* ImageBackgroundTableViewCell.swift */; };
+		015C805D24034451000708F5 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015C805C24034451000708F5 /* MainRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		011514EA2401848200B880E8 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		015C805724034308000708F5 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		015C805924034321000708F5 /* ImageBackgroundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBackgroundTableViewCell.swift; sourceTree = "<group>"; };
+		015C805C24034451000708F5 /* MainRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			children = (
 				011514E12401835400B880E8 /* 3rdParty */,
 				011514C523FEDCAC00B880E8 /* AppDelegate */,
+				015C805B24034451000708F5 /* Router */,
 				011514C623FEDCD700B880E8 /* View */,
 				011514C723FEDCEF00B880E8 /* ViewController */,
 				011514C923FEDD1300B880E8 /* Presenter */,
@@ -232,6 +235,14 @@
 				015C805924034321000708F5 /* ImageBackgroundTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		015C805B24034451000708F5 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				015C805C24034451000708F5 /* MainRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,6 +355,7 @@
 				010686F023FED4B500CB74FD /* AppDelegate.swift in Sources */,
 				011514E9240183B000B880E8 /* RealmEntities.swift in Sources */,
 				015C805A24034321000708F5 /* ImageBackgroundTableViewCell.swift in Sources */,
+				015C805D24034451000708F5 /* MainRouter.swift in Sources */,
 				010686F223FED4B500CB74FD /* SceneDelegate.swift in Sources */,
 				011514CF23FEDF3400B880E8 /* NetworkEntities.swift in Sources */,
 				011514D623FEE0C900B880E8 /* File.swift in Sources */,

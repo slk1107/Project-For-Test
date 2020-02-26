@@ -29,17 +29,17 @@ class DataBaseInteractor: NSObject{
         }
     }
     
-    
-    func save(siteInfos: [UISiteInfo]) {
+    func save(siteInfos: [SiteInfo]) {
         guard let realm = try? Realm() else {
             return
         }
         try? realm.write {
             for siteInfo in siteInfos {
                 let realmSite = RealmSiteInfo()
-                realmSite.title = siteInfo.title
+                realmSite.id = siteInfo._id
+                realmSite.title = siteInfo.stitle
                 realmSite.imageURL = siteInfo.imageURL.absoluteString
-                realm.add(realmSite)
+                realm.add(realmSite, update: .all)
             }
         }
     }

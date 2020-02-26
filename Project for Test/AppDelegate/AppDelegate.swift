@@ -8,7 +8,8 @@
 
 import UIKit
 import CoreData
-
+import Realm
+import RealmSwift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -18,8 +19,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.rootViewController = MainRouter.buildMainPage()
         window!.makeKeyAndVisible()
-        
+        realmMigration()
         return true
+    }
+    
+    private func realmMigration() {
+        let config = Realm.Configuration(schemaVersion: 1, migrationBlock: {
+            migration, oldSchemaVersion in
+            if (oldSchemaVersion < 1) {
+                migration.deleteData(forType: RealmSiteInfo.className())
+            }
+        })
+        Realm.Configuration.defaultConfiguration = config
+        let _ = try! Realm()
     }
 
     // MARK: UISceneSession Lifecycle

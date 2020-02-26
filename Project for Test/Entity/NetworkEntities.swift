@@ -17,6 +17,13 @@ struct DatalistResponse: Codable {
     var results: [SiteInfo]
 }
 struct SiteInfo: Codable {
+    var _id: Int
     var stitle: String
     var file: String
+    
+    var imageURL: URL {
+        get {
+            return file.components(separatedBy: "http://").compactMap({URL(string: $0)?.toHttps()}).first!
+        }
+    }
 }

@@ -12,11 +12,11 @@ struct UISiteInfo {
     var imageURL: URL
     init(serverInfo: SiteInfo) {
         self.title = serverInfo.stitle
-        let firstFileURL = serverInfo.file
-            .components(separatedBy: "http://")
-            .compactMap({URL(string: $0)?.toHttps()})
-            .first!
-        self.imageURL = firstFileURL
+//        let firstFileURL = serverInfo.file
+//            .components(separatedBy: "http://")
+//            .compactMap({URL(string: $0)?.toHttps()})
+//            .first!
+        self.imageURL = serverInfo.imageURL
     }
     
     init(dbInfo: RealmSiteInfo) {

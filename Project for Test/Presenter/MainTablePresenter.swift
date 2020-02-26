@@ -18,6 +18,10 @@ protocol MainTablePresenterProtocol: class {
     func cellIdentifier(at index: Int) -> String
 }
 
+enum ServerError: Error {
+    case NoResult
+}
+
 extension MainTablePresenter: MainTablePresenterProtocol {
     func cellIdentifier(at index: Int) -> String {
         if index % 3 == 0 {
@@ -30,9 +34,13 @@ extension MainTablePresenter: MainTablePresenterProtocol {
     func viewDidLoad() {
         fetchFromDB() { [weak self] uiResults in
             guard let self = self else {return}
-            self.siteList.append(contentsOf: uiResults)
-            self.viewController.reloadTableView()
-            self.fetchFromServer(from: self.siteList.count)
+            if uiResults.count == 0 {
+                self.fetchFromServer(from: 0)
+            } else {
+                self.siteList.append(contentsOf: uiResults)
+                self.viewController.reloadTableView()
+                self.syncFromServer(from: 0, pageCount: uiResults.count)
+            }
         }
     }
     
@@ -71,27 +79,31 @@ class MainTablePresenter {
     }
     
     private func fetchFromServer(from index: Int) {
-        networkInteractor.fetchData(from: index, completion: {
-            [weak self] response in
-                self?.handleServerFetchCallback(response: response)
-            }, error: { [weak self] error in
-                self?.handleFetchFailed(error: error)
+        syncFromServer(from: index, complete: { [weak self] results in
+            self?.handleServerFetchCallback(results: results)
+        }, error: { [weak self] error in
+            self?.handleFetchFailed(error: error)
         })
     }
     
-    private func handleServerFetchCallback(response: RootDataResponse?) {
-        guard let results = response?.result.results, results.count > 0 else {
-            return
-        }
-        let uiInfos = results.map({UISiteInfo(serverInfo: $0)})
-        
-        siteList.append(contentsOf: uiInfos)
-        viewController.reloadTableView()
-        saveToCoreData(infos: uiInfos)
+    private func syncFromServer(from index: Int, pageCount: Int = 10, complete: (([UISiteInfo]) -> Void)? = nil, error: ((Error) -> Void)? = nil) {
+        networkInteractor.fetchData(from: index, pageCount: pageCount, completion: {
+            [weak self] response in
+            guard let self = self, let results = response?.result.results else {return}
+            
+            if results.count == 0 {
+                error?(ServerError.NoResult)
+            }
+            
+            self.databaseInteractor.save(siteInfos: results)
+            complete?(results.map({UISiteInfo(serverInfo: $0)}))
+            
+            }, error: error)
     }
     
-    private func saveToCoreData(infos: [UISiteInfo]) {
-        databaseInteractor.save(siteInfos: infos)
+    private func handleServerFetchCallback(results: [UISiteInfo]) {
+        siteList.append(contentsOf: results)
+        viewController.reloadTableView()
     }
     
     private func handleFetchFailed(error: Error) {

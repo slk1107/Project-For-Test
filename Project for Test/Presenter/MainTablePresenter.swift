@@ -95,6 +95,6 @@ class MainTablePresenter {
     }
     
     private func handleFetchFailed(error: Error) {
-        fetchedRecord - 10//page count
+        fetchedRecord = fetchedRecord - 10 //page count
     }
 }

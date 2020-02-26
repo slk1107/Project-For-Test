@@ -46,8 +46,9 @@ extension MainTablePresenter: MainTablePresenterProtocol {
     
     func willDisplay(index: Int) {
         let currentItemCount = siteList.count
-        if currentItemCount - index == 3 {
-            fetchFromServer(from: siteList.count)
+        if currentItemCount - index == 3 && fetchedRecord < currentItemCount {
+            fetchedRecord = currentItemCount
+            fetchFromServer(from: currentItemCount)
         }
     }
     
@@ -59,6 +60,7 @@ class MainTablePresenter {
     var siteList = [UISiteInfo]()
     var networkInteractor: NetworkInteractor!
     var databaseInteractor: DataBaseInteractor!
+    private var fetchedRecord = 0
     
     private func fetchFromDB(completeHandler: @escaping ([UISiteInfo]) -> Void) {
         databaseInteractor.fetch() {
@@ -93,6 +95,6 @@ class MainTablePresenter {
     }
     
     private func handleFetchFailed(error: Error) {
-        
+        fetchedRecord - 10//page count
     }
 }
